@@ -14,3 +14,22 @@ const celulares = [
 
 const precioMaximo800 = celulares.filter(celulares => celulares.precio <= 800);
 console.log (precioMaximo800);
+
+function normalizarNombre(nombre) {
+    return nombre.toLowerCase().split(' ').sort().join(' ');
+}
+
+const celularBuscado = prompt("¿Qué celular desea buscar?");
+
+const celularEncontrado = celulares.find(celular => normalizarNombre(celular.nombre) === normalizarNombre(celularBuscado));
+console.log (celularEncontrado);
+
+if (celularEncontrado)
+    {
+        alert (`Nombre: ${celularEncontrado.nombre}, Precio: ${celularEncontrado.precio}`);
+    }
+    else {
+        alert ("Este celular no esta disponible");
+    }
+
+
